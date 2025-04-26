@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solr Search Engine</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Add Google Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- jQuery and jQuery UI for autocomplete -->
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>SolrSearch</h1>
+      </header>
+
+      <div class="search-main">
+        <div class="search-box-container">
+          <div class="search-box">
+            <span class="material-icons search-icon">search</span>
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search articles..."
+              autofocus
+            />
+            <span class="material-icons clear-icon" id="clear-search"
+              >clear</span
+            >
+          </div>
+          <button id="search-button">Search</button>
+        </div>
+      </div>
+
+      <div class="content-container">
+        <div class="sidebar">
+          <div class="filter-section">
+            <h3>Categories</h3>
+            <div id="category-filters">
+              <div class="skeleton-loader"></div>
+              <div class="skeleton-loader"></div>
+              <div class="skeleton-loader"></div>
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <h3>Sort By</h3>
+            <div id="sort-options">
+              <div class="sort-item">
+                <input
+                  type="radio"
+                  name="sort"
+                  id="sort-relevance"
+                  value=""
+                  checked
+                />
+                <label for="sort-relevance">Relevance</label>
+              </div>
+              <div class="sort-item">
+                <input
+                  type="radio"
+                  name="sort"
+                  id="sort-date-desc"
+                  value="publish_date desc"
+                />
+                <label for="sort-date-desc">Date (Newest)</label>
+              </div>
+              <div class="sort-item">
+                <input
+                  type="radio"
+                  name="sort"
+                  id="sort-date-asc"
+                  value="publish_date asc"
+                />
+                <label for="sort-date-asc">Date (Oldest)</label>
+              </div>
+              <div class="sort-item">
+                <input
+                  type="radio"
+                  name="sort"
+                  id="sort-title-asc"
+                  value="title asc"
+                />
+                <label for="sort-title-asc">Title (A-Z)</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="main-content">
+          <div id="search-stats">
+            <span id="result-count">0</span> results
+            <span id="search-time"></span>
+            <div id="loading" class="hidden">
+              <div class="spinner"></div>
+              Searching...
+            </div>
+          </div>
+
+          <div id="results-container">
+            <!-- Search results will be displayed here -->
+            <div class="welcome-message">
+              <h2>Welcome to SolrSearch</h2>
+              <p>Enter a search term to find articles in the collection.</p>
+              <p>
+                Try searching for categories like "java", "python", or specific
+                keywords.
+              </p>
+            </div>
+          </div>
+
+          <div class="pagination">
+            <button id="prev-page" disabled>
+              <span class="material-icons">navigate_before</span> Previous
+            </button>
+            <div id="page-numbers"></div>
+            <button id="next-page" disabled>
+              Next <span class="material-icons">navigate_next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>Lab 11: Indexing, Importing and Searching data in Apache Solr</p>
+      <p>BSCS-12A | Syed Abdullah Kashif | 417922</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
